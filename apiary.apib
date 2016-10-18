@@ -150,21 +150,103 @@ Provide a list of customer that fit with the given criteria.
 Show all planned flight.
 
 ### List All Flight [GET]
++ Response 200
+
+        [
+            {
+                "flight_id": "abcdef",
+                "from": "Ho Chi Minh City",
+                "to": "Hanoi",
+                "date": "10/22/2016",
+                "time": "9:00:00",
+                "price": "1000000"
+            }
+        ]
 
 ### Add New Flight [POST]
 
++ Request
+
+        {
+            "from": "Ho Chi Minh City",
+            "to": "Hanoi",
+            "date": "10/22/2016",
+            "time": "12:00:00",
+            "price": "1000000"
+        }
+
++ Response 201
+
+        {
+            "flight_id": "abcxyz"
+        }
+
++ Request
+
+        {
+            "from": "Ho Chi Minh City",
+            "to": "Hanoi",
+            "date": "10/22/2016",
+            "time": "9:00:00",
+            "price": "1000000"
+        }
++ Response 400
 
 ## Searching Flight [/api/flight{?from,to,depart,number_of_person}]
 
 Provide a list of flight.
 
++ Parameters
+    + from (string) - city of department
+    + to (string) - destination
+    + depart (date) - date of department
+    + number_of_person (number) - number of person
+
 ### List Flight with Conditions [GET]
++ Response 200
+
+        [
+            {
+                "flight_id": "abcdef",
+                "from": "Ho Chi Minh City",
+                "to": "Hanoi",
+                "date": "10/22/2016",
+                "time": "9:00:00",
+                "price": "1000000"
+            }
+        ]
 
 ## Seats [/api/seat/{?free,flight_id}]
 
 List current seat (and also their state) in flight with flight_id.
 
++ Parameters
+    + free (boolean) - state of seats
+    + flight_id (string) - id of flight
+
 ### List Seats [GET]
++ Response 200
+
+        [
+            "flight_id": "abcdef"
+            [
+                {
+                    "seat_id": "ab15",
+                    "class": "E",
+                    "state": "free"
+                },
+                {
+                    "seat_id": "ab16",
+                    "class": "E",
+                    "state": "free"
+                },
+                {
+                    "seat_id": "ab17",
+                    "class": "E",
+                    "state": "free"
+                }
+            ]
+        ]
 
 ## Seat Booking [/api/seat]
 
@@ -172,8 +254,60 @@ For booking seats. The POST method also create and return an unique Booking Iden
 
 ### Book Seats [POST]
 
++ Request
+
+        [
+            "flight_id": "abcdef"
+            [
+                {
+                    "seat_id": "ab15"
+                },
+                {
+                    "seat_id": "ab16"
+                }
+            ],
+            "customer_id": "abc123"
+        ]
+
++ Response 201
+
+        {
+            "reservation_code": "abczzz"
+        }
+
++ Request
+
+        [
+            "flight_id": "abcdef" 
+            [
+                {
+                    "seat_id": "ab10",
+                }
+            ]
+        ]
++ Response 400
+
 ## Booking Infomation [/api/seat/{booking_code}]
 
 Return infomation about provided booking code.
 
++ Parameters
+    + booking_code (string) - booking identify code
+
 ### Infomation [GET]
+
++ Response 200
+
+        [
+            "flight_id": "abcdef"
+            [
+                {
+                    "seat_id": "ab15"
+                },
+                {
+                    "seat_id": "ab16"
+                }
+            ],
+            "customer_id": "abc123",
+            "state": "1"
+        ]
