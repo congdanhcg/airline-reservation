@@ -45,9 +45,24 @@ Provide a list of valid city in database.
 
 Provide a list of destination city from city with 'id'
 
-### List Valid Destination [GET]
++ Parameters 
+    + id (string, required) - the id of the starting city.
 
-+ Request 
+### List Valid Destination [GET]
++ Response 200
+
+        [
+            {
+                "id": "HAN",
+                "name": "Hanoi",
+                "area": "Vietnam"
+            },
+            {
+                "id": "SYD",
+                "name": "Sydney",
+                "area": "Australia"
+            }
+        ]
 
 ## Customer [/api/customer]
 
@@ -55,13 +70,80 @@ Provide all customer infomation.
 
 ### List All Customer [GET]
 
++ Response 200
+
+        [
+            {
+                "customer_id": "abc123",
+                "customer_name": "Nguyễn Văn A",
+                "gender": "1",
+                "date_of_birth": "10/15/1980",
+                "identifier": "263216312"
+            },
+            {
+                "customer_id": "abc124",
+                "customer_name": "Nguyễn Văn B",
+                "gender": "1",
+                "date_of_birth": "10/15/1980",
+                "identifier": "263216322"
+            },
+            {
+                "customer_id": "abc125",
+                "customer_name": "Nguyễn Văn C",
+                "gender": "1",
+                "date_of_birth": "10/15/1980",
+                "identifier": "263216352"
+            }
+        ]
+
 ### Add New Customer [POST]
++ Request
+
+        {
+            "customer_name": "Nguyễn Văn D",
+            "gender": "1",
+            "date_of_birth": "10/15/1980",
+            "identifier": "263216354"
+        }
+
++ Response 201
+
+        {
+            "customer_id": "abc126"
+        }
+
++ Request
+
+        {
+            "customer_id": "abc125",
+            "customer_name": "Nguyễn Văn C",
+            "gender": "1",
+            "date_of_birth": "10/15/1980",
+            "identifier": "263216352"
+        }
++ Response 400
 
 ## Specified Customer [/api/customer/{?customer_id,customer_name,id_number}]
 
 Provide a list of customer that fit with the given criteria.
 
++ Parameters
+    + customer_id (string) - id of the customer
+    + customer_name (string) - name of the customer
+    + id_number (number) - national id of the customer
+
 ### List Customer with Conditions [GET]
++ Response 200
+
+        [
+            {
+                "customer_id": "abc125",
+                "customer_name": "Nguyễn Văn C",
+                "gender": "1",
+                "date_of_birth": "10/15/1980",
+                "identifier": "263216352"
+            }
+        ]
 
 ## Flight [/api/flight]
 
