@@ -1,0 +1,97 @@
+FORMAT: 1A
+HOST: http://airline.apiblueprint.org/
+
+# AirlineReservation
+
+This is a mock APIs project for our mid-term project.
+
+## API [/api]
+
+This is the entry of all our APIs.
+
+### Welcome [GET]
+
++ Response 200 (text/plain)
+
+        Welcome to our airline reservation APIs.
+
+## City [/api/city]
+
+Provide a list of valid city in database.
+
+### List All City [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": "SGN",
+                "name": "Ho Chi Minh City",
+                "area": "Vietnam"
+            },
+            {
+                "id": "HAN",
+                "name": "Hanoi",
+                "area": "Vietnam"
+            },
+            {
+                "id": "SYD",
+                "name": "Sydney",
+                "area": "Australia"
+            }
+        ]
+        
+## Destinations [/api/city/{?id}]
+
+Provide a list of destination city from city with 'id'
+
+### List Valid Destination [GET]
+
++ Request 
+
+## Customer [/api/customer]
+
+Provide all customer infomation.
+
+### List All Customer [GET]
+
+### Add New Customer [POST]
+
+## Specified Customer [/api/customer/{?customer_id,customer_name,id_number}]
+
+Provide a list of customer that fit with the given criteria.
+
+### List Customer with Conditions [GET]
+
+## Flight [/api/flight]
+
+Show all planned flight.
+
+### List All Flight [GET]
+
+### Add New Flight [POST]
+
+
+## Searching Flight [/api/flight{?from,to,depart,number_of_person}]
+
+Provide a list of flight.
+
+### List Flight with Conditions [GET]
+
+## Seats [/api/seat/{?free,flight_id}]
+
+List current seat (and also their state) in flight with flight_id.
+
+### List Seats [GET]
+
+## Seat Booking [/api/seat]
+
+For booking seats. The POST method also create and return an unique Booking Identify Code.
+
+### Book Seats [POST]
+
+## Booking Infomation [/api/seat/{booking_code}]
+
+Return infomation about provided booking code.
+
+### Infomation [GET]
