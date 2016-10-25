@@ -74,8 +74,8 @@ Provide all customer infomation.
 
         [
             {
-                "customer_id": "abc123",
-                "customer_name": "Nguyen Văn A",
+                "passengeup_id": "abc123",
+                "passenger_name": "Nguyen Văn A",
                 "gender": "1",
                 "date_of_birth": "10/15/1980",
                 "identifier": "263216312"
@@ -88,8 +88,8 @@ Provide all customer infomation.
                 "identifier": "263216322"
             },
             {
-                "customer_id": "abc125",
-                "customer_name": "Nguyen Van C",
+                "passenger_id": "abc125",
+                "passenger_name": "Nguyen Van C",
                 "gender": "1",
                 "date_of_birth": "10/15/1980",
                 "identifier": "263216352"
@@ -100,7 +100,7 @@ Provide all customer infomation.
 + Request
 
         {
-            "customer_name": "Nguyen Van D",
+            "passenger_name": "Nguyen Van D",
             "gender": "1",
             "date_of_birth": "10/15/1980",
             "identifier": "263216354"
@@ -109,27 +109,27 @@ Provide all customer infomation.
 + Response 201
 
         {
-            "customer_id": "abc126"
+            "passenger_id": "abc126"
         }
 
 + Request
 
         {
-            "customer_id": "abc125",
-            "customer_name": "Nguyen Van C",
+            "passenger_id": "abc125",
+            "passenger_name": "Nguyen Van C",
             "gender": "1",
             "date_of_birth": "10/15/1980",
             "identifier": "263216352"
         }
 + Response 400
 
-## Specified Passenger [/api/Passenger/{?customer_id,customer_name,id_number}]
+## Specified Passenger [/api/Passenger/{?passenger_id,passenger_name,id_number}]
 
 Provide a list of customer that fit with the given criteria.
 
 + Parameters
-    + customer_id (string) - id of the customer
-    + customer_name (string) - name of the customer
+    + passenger_id (string) - id of the customer
+    + passenger_name (string) - name of the customer
     + id_number (number) - national id of the customer
 
 ### List Passenger with Conditions [GET]
@@ -137,8 +137,8 @@ Provide a list of customer that fit with the given criteria.
 
         [
             {
-                "customer_id": "abc125",
-                "customer_name": "Nguyen Van C",
+                "passenger_id": "abc125",
+                "passenger_name": "Nguyen Van C",
                 "gender": "1",
                 "date_of_birth": "10/15/1980",
                 "identifier": "263216352"
@@ -231,17 +231,17 @@ List current seat (and also their state) in flight with flight_id.
             "flight_id": "abcdef"
             [
                 {
-                    "seat_id": "ab15",
+                    "seat_id": "15a",
                     "class": "E",
                     "state": "free"
                 },
                 {
-                    "seat_id": "ab16",
+                    "seat_id": "16a",
                     "class": "E",
                     "state": "free"
                 },
                 {
-                    "seat_id": "ab17",
+                    "seat_id": "17a",
                     "class": "E",
                     "state": "free"
                 }
@@ -260,13 +260,13 @@ For booking seats. The POST method also create and return an unique Booking Iden
             "flight_id": "abcdef"
             [
                 {
-                    "seat_id": "ab15"
+                    "seat_id": "15a"
                 },
                 {
-                    "seat_id": "ab16"
+                    "seat_id": "16a"
                 }
             ],
-            "customer_id": "abc123"
+            "passenger_id": "abc123"
         ]
 
 + Response 201
@@ -281,7 +281,7 @@ For booking seats. The POST method also create and return an unique Booking Iden
             "flight_id": "abcdef" 
             [
                 {
-                    "seat_id": "ab10",
+                    "seat_id": "10a",
                 }
             ]
         ]
@@ -302,12 +302,12 @@ Return infomation about provided booking code.
             "flight_id": "abcdef"
             [
                 {
-                    "seat_id": "ab15"
+                    "seat_id": "15a"
                 },
                 {
-                    "seat_id": "ab16"
+                    "seat_id": "15a"
                 }
             ],
-            "customer_id": "abc123",
+            "passenger_id": "abc123",
             "state": "1"
         ]
