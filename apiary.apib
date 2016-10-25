@@ -41,7 +41,7 @@ Provide a list of valid city in database.
             }
         ]
         
-## Destinations [/api/city/{?id}]
+## Destinations [/api/airports/{?id}]
 
 Provide a list of destination city from city with 'id'
 
@@ -64,11 +64,11 @@ Provide a list of destination city from city with 'id'
             }
         ]
 
-## Customer [/api/customer]
+## Passenger [/api/passenger]
 
 Provide all customer infomation.
 
-### List All Customer [GET]
+### List All Passenger [GET]
 
 + Response 200
 
@@ -96,7 +96,7 @@ Provide all customer infomation.
             }
         ]
 
-### Add New Customer [POST]
+### Add New Passenger [POST]
 + Request
 
         {
@@ -123,7 +123,7 @@ Provide all customer infomation.
         }
 + Response 400
 
-## Specified Customer [/api/customer/{?customer_id,customer_name,id_number}]
+## Specified Passenger [/api/Passenger/{?customer_id,customer_name,id_number}]
 
 Provide a list of customer that fit with the given criteria.
 
@@ -132,7 +132,7 @@ Provide a list of customer that fit with the given criteria.
     + customer_name (string) - name of the customer
     + id_number (number) - national id of the customer
 
-### List Customer with Conditions [GET]
+### List Passenger with Conditions [GET]
 + Response 200
 
         [
