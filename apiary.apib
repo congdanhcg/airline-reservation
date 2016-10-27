@@ -74,24 +74,24 @@ Provide all customer infomation.
 
         [
             {
-                "passengeup_id": "abc123",
-                "passenger_name": "Nguyen Văn A",
+                "passengeupId": "abc123",
+                "passengerName": "Nguyen Văn A",
                 "gender": "1",
-                "date_of_birth": "10/15/1980",
+                "dateOfBirth": "10/15/1980",
                 "identifier": "263216312"
             },
             {
-                "customer_id": "abc124",
-                "customer_name": "Nguyen Van B",
+                "passengerId": "abc124",
+                "passengerName": "Nguyen Van B",
                 "gender": "1",
-                "date_of_birth": "10/15/1980",
+                "dateOfBirth": "10/15/1980",
                 "identifier": "263216322"
             },
             {
-                "passenger_id": "abc125",
-                "passenger_name": "Nguyen Van C",
+                "passengerId": "abc125",
+                "passengerName": "Nguyen Van C",
                 "gender": "1",
-                "date_of_birth": "10/15/1980",
+                "dateOfBirth": "10/15/1980",
                 "identifier": "263216352"
             }
         ]
@@ -102,45 +102,45 @@ Provide all customer infomation.
         {
             "passenger_name": "Nguyen Van D",
             "gender": "1",
-            "date_of_birth": "10/15/1980",
+            "dateOfBirth": "10/15/1980",
             "identifier": "263216354"
         }
 
 + Response 201
 
         {
-            "passenger_id": "abc126"
+            "passengerId": "abc126"
         }
 
 + Request
 
         {
-            "passenger_id": "abc125",
-            "passenger_name": "Nguyen Van C",
+            "passengerId": "abc125",
+            "passengerName": "Nguyen Van C",
             "gender": "1",
-            "date_of_birth": "10/15/1980",
+            "dateOfBirth": "10/15/1980",
             "identifier": "263216352"
         }
 + Response 400
 
-## Specified Passenger [/api/Passenger/{?passenger_id,passenger_name,id_number}]
+## Specified Passenger [/api/Passenger/{?id,name,identifier}]
 
 Provide a list of customer that fit with the given criteria.
 
 + Parameters
-    + passenger_id (string) - id of the customer
-    + passenger_name (string) - name of the customer
-    + id_number (number) - national id of the customer
+    + id (string) - id of the customer
+    + name (string) - name of the customer
+    + identifier (number) - national id of the customer
 
 ### List Passenger with Conditions [GET]
 + Response 200
 
         [
             {
-                "passenger_id": "abc125",
-                "passenger_name": "Nguyen Van C",
+                "passengerId": "abc125",
+                "passengerName": "Nguyen Van C",
                 "gender": "1",
-                "date_of_birth": "10/15/1980",
+                "dateOfBirth": "10/15/1980",
                 "identifier": "263216352"
             }
         ]
@@ -154,7 +154,7 @@ Show all planned flight.
 
         [
             {
-                "flight_id": "abcdef",
+                "flightID": "abcdef",
                 "departure": "Ho Chi Minh City",
                 "arrival": "Hanoi",
                 "date": "10/22/2016",
@@ -178,7 +178,7 @@ Show all planned flight.
 + Response 201
 
         {
-            "flight_id": "abcxyz"
+            "flightId": "abcxyz"
         }
 
 + Request
@@ -192,7 +192,7 @@ Show all planned flight.
         }
 + Response 400
 
-## Searching Flight [/api/flight{?departure,arrival,depart,number_of_person}]
+## Searching Flight [/api/flight{?departure,arrival,depart,number}]
 
 Provide a list of flight.
 
@@ -200,14 +200,14 @@ Provide a list of flight.
     + departure (string) - city of department
     + arrival (string) - destination
     + depart (date) - date of department
-    + number_of_person (number) - number of person
+    + number(number) - number of person
 
 ### List Flight with Conditions [GET]
 + Response 200
 
         [
             {
-                "flight_id": "abcdef",
+                "flightId": "abcdef",
                 "departure": "Ho Chi Minh City",
                 "arrival": "Hanoi",
                 "date": "10/22/2016",
@@ -216,32 +216,32 @@ Provide a list of flight.
             }
         ]
 
-## Seats [/api/seat/{?free,flight_id}]
+## Seats [/api/seat/{?free,id}]
 
 List current seat (and also their state) in flight with flight_id.
 
 + Parameters
     + free (boolean) - state of seats
-    + flight_id (string) - id of flight
+    + id (string) - id of flight
 
 ### List Seats [GET]
 + Response 200
 
         [
-            "flight_id": "abcdef"
+            "flightId": "abcdef"
             [
                 {
-                    "seat_id": "15a",
+                    "seatId": "15a",
                     "class": "E",
                     "state": "free"
                 },
                 {
-                    "seat_id": "16a",
+                    "seatId": "16a",
                     "class": "E",
                     "state": "free"
                 },
                 {
-                    "seat_id": "17a",
+                    "seatId": "17a",
                     "class": "E",
                     "state": "free"
                 }
@@ -257,57 +257,57 @@ For booking seats. The POST method also create and return an unique Booking Iden
 + Request
 
         [
-            "flight_id": "abcdef"
+            "flightId": "abcdef"
             [
                 {
-                    "seat_id": "15a"
+                    "seatId": "15a"
                 },
                 {
-                    "seat_id": "16a"
+                    "seatId": "16a"
                 }
             ],
-            "passenger_id": "abc123"
+            "passengerId": "abc123"
         ]
 
 + Response 201
 
         {
-            "reservation_code": "abczzz"
+            "bookingCode": "abczzz"
         }
 
 + Request
 
         [
-            "flight_id": "abcdef" 
+            "flightId": "abcdef" 
             [
                 {
-                    "seat_id": "10a",
+                    "seatId": "10a",
                 }
             ]
         ]
 + Response 400
 
-## Booking Infomation [/api/seat/{booking_code}]
+## Booking Infomation [/api/seat/{code}]
 
 Return infomation about provided booking code.
 
 + Parameters
-    + booking_code (string) - booking identify code
+    + code (string) - booking identify code
 
 ### Infomation [GET]
 
 + Response 200
 
         [
-            "flight_id": "abcdef"
+            "flightId": "abcdef"
             [
                 {
-                    "seat_id": "15a"
+                    "seatId": "15a"
                 },
                 {
-                    "seat_id": "15a"
+                    "seatId": "15a"
                 }
             ],
-            "passenger_id": "abc123",
+            "passengerId": "abc123",
             "state": "1"
         ]
