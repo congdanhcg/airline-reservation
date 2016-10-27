@@ -211,8 +211,9 @@ Provide a list of flight.
                 "departure": "Ho Chi Minh City",
                 "arrival": "Hanoi",
                 "date": "10/22/2016",
-                "time": "9:00:00",
-                "price": "1000000"
+                "boardingTime": "9:00:00",
+                "price": "1000000",
+                "time": "1:00:00"
             }
         ]
 
@@ -228,8 +229,8 @@ List current seat (and also their state) in flight with flight_id.
 + Response 200
 
         [
-            "flightId": "abcdef"
-            [
+            "flightId": "abcdef",
+            "seats": [
                 {
                     "seatId": "15a",
                     "class": "E",
@@ -257,8 +258,8 @@ For booking seats. The POST method also create and return an unique Booking Iden
 + Request
 
         [
-            "flightId": "abcdef"
-            [
+            "flightId": "abcdef",
+            "seats": [
                 {
                     "seatId": "15a"
                 },
@@ -278,8 +279,8 @@ For booking seats. The POST method also create and return an unique Booking Iden
 + Request
 
         [
-            "flightId": "abcdef" 
-            [
+            "flightId": "abcdef",
+            "seats": [
                 {
                     "seatId": "10a",
                 }
@@ -299,8 +300,8 @@ Return infomation about provided booking code.
 + Response 200
 
         [
-            "flightId": "abcdef"
-            [
+            "flightId": "abcdef",
+            "seats": [
                 {
                     "seatId": "15a"
                 },
