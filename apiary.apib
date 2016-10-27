@@ -145,7 +145,7 @@ Provide a list of customer that fit with the given criteria.
             }
         ]
 
-## Flight [/api/flight]
+## Flight [/api/flights]
 
 Show all planned flight.
 
@@ -192,14 +192,14 @@ Show all planned flight.
         }
 + Response 400
 
-## Searching Flight [/api/flight{?departure,arrival,depart,number}]
+## Searching Flight [/api/flights{?departure,arrival,date,number}]
 
 Provide a list of flight.
 
 + Parameters
     + departure (string) - city of department
     + arrival (string) - destination
-    + depart (date) - date of department
+    + date (date) - date of department
     + number(number) - number of person
 
 ### List Flight with Conditions [GET]
