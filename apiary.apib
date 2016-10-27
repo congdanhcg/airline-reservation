@@ -155,8 +155,8 @@ Show all planned flight.
         [
             {
                 "flight_id": "abcdef",
-                "from": "Ho Chi Minh City",
-                "to": "Hanoi",
+                "departure": "Ho Chi Minh City",
+                "arrival": "Hanoi",
                 "date": "10/22/2016",
                 "time": "9:00:00",
                 "price": "1000000"
@@ -168,8 +168,8 @@ Show all planned flight.
 + Request
 
         {
-            "from": "Ho Chi Minh City",
-            "to": "Hanoi",
+            "departure": "Ho Chi Minh City",
+            "arrival": "Hanoi",
             "date": "10/22/2016",
             "time": "12:00:00",
             "price": "1000000"
@@ -184,21 +184,21 @@ Show all planned flight.
 + Request
 
         {
-            "from": "Ho Chi Minh City",
-            "to": "Hanoi",
+            "departure": "Ho Chi Minh City",
+            "arrival": "Hanoi",
             "date": "10/22/2016",
             "time": "9:00:00",
             "price": "1000000"
         }
 + Response 400
 
-## Searching Flight [/api/flight{?from,to,depart,number_of_person}]
+## Searching Flight [/api/flight{?departure,arrival,depart,number_of_person}]
 
 Provide a list of flight.
 
 + Parameters
-    + from (string) - city of department
-    + to (string) - destination
+    + departure (string) - city of department
+    + arrival (string) - destination
     + depart (date) - date of department
     + number_of_person (number) - number of person
 
@@ -208,8 +208,8 @@ Provide a list of flight.
         [
             {
                 "flight_id": "abcdef",
-                "from": "Ho Chi Minh City",
-                "to": "Hanoi",
+                "departure": "Ho Chi Minh City",
+                "arrival": "Hanoi",
                 "date": "10/22/2016",
                 "time": "9:00:00",
                 "price": "1000000"
