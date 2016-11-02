@@ -217,13 +217,12 @@ Provide a list of flight.
             }
         ]
 
-## Seats [/api/seat/{?free,id}]
+## Seats [/api/seat/{?flightId}]
 
 List current seat (and also their state) in flight with flight_id.
 
 + Parameters
-    + free (boolean) - state of seats
-    + id (string) - id of flight
+    + flightId (string) - id of flight
 
 ### List Seats [GET]
 + Response 200
@@ -293,6 +292,8 @@ List current seat (and also their state) in flight with flight_id.
                 }
             ]
         ]
+        
+
 
 ## Seat Booking [/api/seat]
 
